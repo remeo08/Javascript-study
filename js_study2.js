@@ -50,6 +50,9 @@ function User(name, age){     //User 생성자함수 첫글자는 대문자로 �
     // this = {}       new 연산자를 사용하면 this에 빈 객체를 만들어서 this에 할당하는 것처럼 동작함.
     this.name = name;    // 함수를 실행하면서 this에 프로퍼티들을 추가함.
     this.age = age;
+    this.sayName = function(){
+        console.log(this.name);    // 여기서 this는 user5
+    }
     // return this;     가 있는 것처럼 반환함.
 }
 
@@ -58,8 +61,31 @@ let user2 = new User('Jane', 22);    // 비슷한 객체 3개를 생성한 것
 let user3 = new User('Tom', 17);
 
 
+let user5  = new User('Han', 40);
+user5.sayName();   // 'Han'
 
 
+let user3 = User('Tom', 17);   //new 빼면 undefined 나옴. User() 함수 안에 return이 없기 때문.
+
+
+
+
+
+// 객체
+// Object - methods / Computed property(계산된 프로퍼티)
+let a = 'age';
+const user = {
+    name: 'Mike',
+    [a]: 30   // 대괄호 안에 변수명을 넣으면 변수에 할당된 값이 들어간다. 이게 computed property // age: 30인 것.
+}
+
+
+// 변수명이 아니라 식 자체가 들어가도 됨.
+const user = {
+    [1+4] : 5,
+    ["안녕"+"하세요"] : "Hello"
+}
+// 결과: {5:5, 안녕하세요: "Hello"}
 
 
 
